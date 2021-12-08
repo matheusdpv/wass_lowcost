@@ -1,21 +1,21 @@
 '''
 author: matheus vieira - 2021
 
-NEEDS:
+# NEEDS:
     - OpenCV (python<=3.7):   conda install -c conda-forge opencv
     - Praat software:         sudo apt-get install praat
     
     - Set script preferences                      [lines 35-50]
     - Insert just video files inside video path   [pathname - line 35]
 
-DO:
-    - Apply wind filter
+# DO:
+    - Apply wind filter       (optional)
     - Frames extraction
     - Frames synchronization
-    - Frames resampling
-    - Frames renaming 
+    - Frames resampling       (optional)
+    - Frames renaming         (optional)
 
-Tested devices
+# Tested devices
     - Smartphones:    Galaxy J5 Pro 1080/30 fps - CMOS 13MP     - VFR
     - Action cameras: GoPro HERO9 4K/30/24 or 1080p/30/24 fps   - CFR
     - DSLR Pro:       PANASONIC AG-UX 180 - 4K/50 fps           - CFR
@@ -30,9 +30,9 @@ from scipy.io import wavfile
 from scipy import signal
 import shutil
 
-############################# Input #########################################
+# ############################ Input #########################################
 
-pathname = '/media/matheus/DATA/sv_caparica_26052021/run/run01/' # videos path
+pathname = '/media/matheus/DATA/'      # videos path
 op_system = 'linux'                    # 'windows' / 'linux'
 cameras = '01'                         # '0'= left/ '1'=right / '01'=left and right 
 cam_type = 'gopro'                     # 'dslr' / 'smartphone' / 'gopro'
@@ -41,18 +41,15 @@ fps_input = 24                         # 10 / 24 / 30 / 50
 resample_frames = 'yes'                # 'yes' / 'no'
 fps_resampled = 12                     # 10 / 24 / 30 / 50 # if
 wind_filter = 'on'                     # 'on' / 'off'
-last_frame = 999999                    # last synchronized frame number
-
+last_frame = 200                       # last synchronized frame number
+rename_frames = 'yes'
 
 # NEED EDIT ONLY FOR VariableFrameRate VIDEOS (i.e Smartphones):
 video_format_out = 'mp4'               # 'MP4' / 'mp4' / 'mov' / 'avi' ...
 clip_start = 0                         # start in seconds (ref clip)
 clip_end =   99999                     # end   in seconds
 
-#############################################################################
-
-
-
+# ############################################################################
 
 
 
@@ -247,27 +244,27 @@ else:
 
 
 ## RENAME IMAGE FILES TO WASS INPUT
-print ('---------------------------------------------------')
-print ('Renaming files to a 06%d sequence [WASS input]')
-print ('---------------------------------------------------')
+if rename_frames == 'yes':
 
-cameras='0'
-if cam_type == 'smartphone':
-    pass
-else:
-    for i in cameras: #0 and 1
-        if resample_frames == 'yes':
-            pathname_renamed = pathname + 'cam'+i+'_resampled/'
-        else:
-            pathname_renamed = pathname + 'cam'+i+'/'
-        files = np.sort(glob(pathname_renamed + '*.tif'))
-        count=0
-        for file in files:
-            name_fin = pathname_renamed + "%06d.tif" % count
-            os.rename(file, name_fin)
-            print ('renaming : ' + file[-10:] + '   to    ' + name_fin[-10:])
-            count += 1
-
+    print ('---------------------------------------------------')
+    print ('Renaming files to a 06%d sequence [WASS input]')
+    print ('---------------------------------------------------')
+    
+    if cam_type == 'smartphone':
+        pass
+    else:
+        for i in cameras: #0 and 1
+            if resample_frames == 'yes':
+                pathname_renamed = pathname + 'cam'+i+'_resampled/'
+            else:
+                pathname_renamed = pathname + 'cam'+i+'/'
+            files = np.sort(glob(pathname_renamed + '*.tif'))
+            count=0
+            for file in files:
+                name_fin = pathname_renamed + "%06d.tif" % count
+                os.rename(file, name_fin)
+                print ('renaming : ' + file[-10:] + '   to    ' + name_fin[-10:])
+                count += 1
 
 
 #-----------------------------------------------------------------------------
