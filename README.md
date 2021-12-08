@@ -1,6 +1,3 @@
-'''
-author: matheus vieira - 2021
-
 # NEEDS:
     - OpenCV (python<=3.7):   conda install -c conda-forge opencv
     - Praat software:         sudo apt-get install praat
@@ -21,16 +18,7 @@ author: matheus vieira - 2021
     - DSLR Pro:       PANASONIC AG-UX 180 - 4K/50 fps           - CFR
 '''
 
-import os
-import numpy as np
-import subprocess
-from glob import glob
-import cv2
-from scipy.io import wavfile
-from scipy import signal
-import shutil
-
-# ############################ Input #########################################
+# Input 
 
 pathname = '/media/matheus/DATA/'      # videos path
 op_system = 'linux'                    # 'windows' / 'linux'
@@ -49,4 +37,3 @@ video_format_out = 'mp4'               # 'MP4' / 'mp4' / 'mov' / 'avi' ...
 clip_start = 0                         # start in seconds (ref clip)
 clip_end =   99999                     # end   in seconds
 
-# ############################################################################
