@@ -4,7 +4,7 @@ author: matheus vieira - 2019
 
 # HOW TO RUN:
     - Edit file 'setup_sync.py' and place in the same path of 'wass_sync.py' file
-    - Change to directory where are the files 'setup_sync.py' and 'wass_sync.py' then, run:
+    - Change to directory where 'setup_sync.py' and 'wass_sync.py' are then, run:
         python wass_sync.py
 
 # REQUIREMENTS:
