@@ -23,8 +23,8 @@ Tested devices
     - Action cameras: GoPro HERO9 4K/30/24 or 1080p/30/24 fps   - CFR
     - DSLR Pro:       PANASONIC AG-UX 180 - 4K/50 fps           - CFR
     - DSLR Pro:       Canon 4K  15xzoom                         - CFR
-------------------------------------------------------------------------------
-
+    
+    
 
 ps:
 If videos has a Constant Frame Rate - CFR (i.e DLSR Pro cameras, GoPro's)
