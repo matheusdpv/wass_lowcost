@@ -1,6 +1,6 @@
 THIS TOOLBOX WAS MADE TO EXTRACT AND SYNCHRONIZE IMAGES FROM STEREO VIDEO CAMERAS (WITH AUDIO BUILT-IN)
 
-author: matheus vieira /last update may 2023
+author: matheus vieira /last update 2024
 
 HOW TO RUN:
     - Edit file 'setup_sync.py' and place in the same path of the 'wass_sync.py' file
