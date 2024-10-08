@@ -1,6 +1,6 @@
 '''
 author: matheus vieira - 2019
-    last update: may 2023
+    last update: 2024
 
 # HOW TO RUN:
     - Edit file 'setup_sync.py' and place in the same path of 'wass_sync.py' file
@@ -55,7 +55,6 @@ warnings.filterwarnings("ignore", category=FutureWarning)
 from setup_sync import *
 
 
-
 print ('---------------------------------------------------')
 print ('Creating Directories for frame storage:')
 print ('---------------------------------------------------')
@@ -64,8 +63,6 @@ try:
     os.makedirs(pathname + 'cam1/')
 except FileExistsError:
     pass
-
-
 
 print ('---------------------------------------------------')
 print ('Creating/Reading cross-correlation file:')
@@ -96,24 +93,19 @@ else:
         print("writeInfoLine: 'offset'",file=f)
 
 
-
-
 print ('---------------------------------------------------')
 print('Rename video files to cam0/cam1.FORMAT')
 print ('---------------------------------------------------')
 
-# List video files
-clip_list = np.sort(glob(pathname + '*.'+video_format_input))
-count=0
-for video in clip_list:
+# List and rename video files
+clip_list_original = np.sort(glob(pathname + '*.'+video_format_input))
+
+for video in clip_list_original:
     name_ini = video
     name_fin = pathname + "cam" + str(count) +'.'+ video_format_input
     os.rename(name_ini, name_fin)
-    count += 1
+    
 clip_list = np.sort(glob(pathname + '*.'+video_format_input))
-
-
-
 
 
 ## APPLYING TLCC - TIME LAG CROSS-CORRELATION
@@ -184,8 +176,6 @@ else:
     print ('----------------------------------------------------------------------------')
 
 
-
-
 ### EXTRACTING FRAMES
 print ('---------------------------------------------------')
 print ('Starting frames extraction:')
@@ -204,16 +194,15 @@ for i in camera_id: #0 and 1
     print (pathname_fig, filename)
 
 
-
-    if float(results[-1][-1]) > 0 and filename == 'cam0.'+ str(video_format_output):
+    if lag > 0 and filename == 'cam0.'+ str(video_format_output):
       image_extracted_first_plot = image_extracted_first
-    if float(results[-1][-1]) > 0 and filename == 'cam1.'+ str(video_format_output):
+    if lag > 0 and filename == 'cam1.'+ str(video_format_output):
       image_extracted_first_plot = image_extracted_first + lag
-    if float(results[-1][-1]) < 0 and filename == 'cam0.'+ str(video_format_output):
-      image_extracted_first_plot = image_extracted_first + lag
-    if float(results[-1][-1]) < 0 and filename == 'cam1.'+ str(video_format_output):
+    if lag < 0 and filename == 'cam0.'+ str(video_format_output):
+      image_extracted_first_plot = image_extracted_first + np.abs(lag)
+    if lag < 0 and filename == 'cam1.'+ str(video_format_output):
       image_extracted_first_plot = image_extracted_first
-    if np.abs(float(results[-1][-1])) < 1/video_fps_input:
+    if np.abs(lag) < 1/video_fps_input:
       print ('VIDEO FILES ARE ALREADY SYNCHRONIZED')
       pass
 
@@ -233,4 +222,38 @@ for i in camera_id: #0 and 1
         count += 1
     cap.release()
     # cv2.destroyAllWindows()
+
+# Rename the files to original filename
+for i in range(len(clip_list)):
+    name_ini = clip_list[i]
+    name_fin = clip_list_original[i]
+    os.rename(name_ini, name_fin)
+    
+
+if op_system == 'linux':    
+    with open(pathname +f'sync_log.txt', "a") as f:
+        print('Frames extracted: ' + str(image_extracted_last-image_extracted_first),file=f)
+        print ('video_format_input: '+video_format_input,file=f)    
+        if camera_type == 'smartphone':
+          print ('video_format_output: '+video_format_output,file=f)    
+        print ('camera_type = ' + camera_type, file=f)
+        print ('video_fps_input: ' + str(video_fps_input), file=f)
+        print ('video_fps_output: ' + str(video_fps_output), file=f) 
+        print ('image_format_output: ' + image_format_output, file=f) 
+        print ('offset in seconds: ' + str(offset),file=f)
+        print ('offset in number of frames before resampling: ' + str(lag),file=f)
+        print ('offset in number of frames after resampling: ' + str(lag/resample_factor),file=f)
+        if lag > 0:
+          print ('frames removed from cam1 [lag > 0]',file=f)
+        if lag < 0:
+          print ('frames removed from cam0 [lag < 0]',file=f)   
+        print ('audio_sync_cc_window_ini: ' +str(audio_sync_cc_window_ini),file=f)
+        print ('audio_sync_cc_window_fin: ' +str(audio_sync_cc_window_fin),file=f)
+        print ('audio_wind_filter: ' + audio_wind_filter,file=f)
+
+print ('----------------------------')
+print ('sync_log.txt file created')
+print ('----------------------------')
+
+
 print('RUN: COMPLETE')
