@@ -1,0 +1,152 @@
+# SGBM Disp12MaxDiff
+# 
+#DENSE_DISP12MAXDIFF=-1
+
+# SGBM P1 parameter
+# 
+#DENSE_P1_MULT=2
+
+# SGBM P2 parameter
+# 
+#DENSE_P2_MULT=64
+
+# SGBM PreFilterCap
+# 
+#DENSE_PREFILTER_CAP=60
+
+# Image resize before dense stereo
+# 
+#DENSE_SCALE=1
+
+# SGBM SpeckleRange
+# 
+#DENSE_SPECKLE_RANGE=16
+
+# SGBM SpeckleWindowSize
+# 
+#DENSE_SPECKLE_WINDOW_SIZE=-70
+
+# SGBM Uniqueness ratio
+# 
+#DENSE_UNIQUENESS_RATIO=1
+
+# Disable automatic left-right detection
+# 
+#DISABLE_AUTO_LEFT_RIGHT=false
+
+# Offset in pixel to be applied. Positive: move right image to the right. Negative: move right image to the left
+# 
+#DISPARITY_OFFSET=0
+
+# Number of dilate steps to be applied to the disparity map
+# 
+#DISP_DILATE_STEPS=1
+
+# Number of erosion steps to be applied to the disparity map
+# 
+#DISP_EROSION_STEPS=2
+
+# Maximum disparity allowed
+# 
+#MAX_DISPARITY=640
+
+# Disparity median filter window size (0 to disable)
+# 
+#MEDIAN_FILTER_WSIZE=0
+
+# Minimum disparity allowed (in px)
+# 
+#MIN_DISPARITY=1
+
+# Minimum number of triangulated point to proceed with plane estimation
+# 
+#MIN_TRIANGULATED_POINTS=100
+
+# Maximum point-plane distance allowed for the reconstructed point-cloud
+# 
+#PLANE_MAX_DISTANCE=1.5
+
+# number of RANSAC rounds for plane estimation
+# 
+#PLANE_RANSAC_ROUNDS=200
+
+# RANSAC inlier threshold
+# 
+#PLANE_RANSAC_THRESHOLD=1
+
+# Maximum point x-coordinate for plane refinement
+# 
+#PLANE_REFINE_XMAX=9999
+
+# Minimum point x-coordinate for plane refinement
+# 
+#PLANE_REFINE_XMIN=-9999
+
+# Maximum point y-coordinate for plane refinement
+# 
+#PLANE_REFINE_YMAX=9999
+
+# Minimum point y-coordinate for plane refinement
+# 
+#PLANE_REFINE_YMIN=-9999
+
+# use point to camera distance as weight during LLS plane fitting
+# 
+#PLANE_WEIGHT_PROPORTIONAL_TO_DISTANCE=true
+
+# Random seed for ransac. -1 to use system timer
+# 
+#RANDOM_SEED=-1
+
+# Save final reconstructed point cloud also in PLY format
+# 
+SAVE_AS_PLY=true
+
+# Save in 16-bit compressed format
+# 
+#SAVE_COMPRESSED=true
+
+# Save 3D point cloud before plane outlier removal
+# 
+#SAVE_FULL_MESH=false
+
+# Save a scaled version of input images (Set 1 to skip or a value <1 to specify scale ratio)
+# 
+#SAVE_INPUT_SCALE=0.3
+
+# Swaps left-right images (only valid if DISABLE_AUTO_LEFT_RIGHT is set)
+# 
+#SWAP_LEFT_RIGHT=false
+
+# Triangulation bounding box bottom coordinate in px wrt. the left image (-1 to disable)
+# 
+#TRIANG_BBOX_BOTTOM=-1
+
+# Triangulation bounding box left coordinate in px wrt. the left image (-1 to disable)
+# 
+#TRIANG_BBOX_LEFT=-1
+
+# Triangulation bounding box right coordinate in px wrt. the left image (-1 to disable)
+# 
+#TRIANG_BBOX_RIGHT=-1
+
+# Triangulation bounding box top coordinate in px wrt. the left image (-1 to disable)
+# 
+#TRIANG_BBOX_TOP=-1
+
+# Minimum ray angle for triangulation (in degrees)
+# 
+#TRIANG_MIN_ANGLE=20
+
+# Stereo match window size
+# 
+#WINSIZE=13
+
+# Z-gap percentile for outlier filtering
+# 
+#ZGAP_PERCENTILE=99
+
+#USE_CUSTOM_STEREORECTIFY=true
+
+#DISABLE_RECTIFY_ROI=true
+
