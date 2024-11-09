@@ -1,6 +1,6 @@
-THIS TOOLBOX WAS MADE TO EXTRACT AND SYNCHRONIZE IMAGES FROM STEREO VIDEO CAMERAS (WITH AUDIO BUILT-IN)
+WASS sync - image synchronization based on audio signal cross-correlation (demands video with audio built-in)
 
-author: matheus vieira /last update 2024
+author: matheus vieira
 
 HOW TO RUN:
     - Edit file 'setup_sync.py' and place in the same path of the 'wass_sync.py' file
@@ -39,6 +39,4 @@ from the encoded video and stored in cam0/cam1 paths.
 A wind noise filter can be applied for better cross-correlation of the audio
 signal in windy conditions
 
-If there's a corrupt MP4 video file, run:
-ffmpeg -i cam0.MP4 -c copy cam01.MP4
 
