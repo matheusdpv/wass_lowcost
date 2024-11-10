@@ -17,8 +17,8 @@ This repository can be used with the methods presented in Vieira et al., 2020 an
    Calibration files including distortion and intrinsic parameters for accurate 3D reconstruction.
 
 ### References
-Vieira, M., Guimarães, P. V., Violante-Carvalho, N., Benetazzo, A., Bergamasco, F., Pereira, H., 2020. A low-cost stereo video system for measuring directional wind waves. Journal of Marine Science and Engineering, 8(11).
-Vieira, M., Guedes Soares, C., Guimarães, P. V., Bergamasco, F., Campos, R. M., 2024. Nearshore space-time ocean wave observation using low-cost video cameras.
+1. Vieira, M., Guimarães, P. V., Violante-Carvalho, N., Benetazzo, A., Bergamasco, F., Pereira, H., 2020. A low-cost stereo video system for measuring directional wind waves. Journal of Marine Science and Engineering, 8(11).
+2. Vieira, M., Guedes Soares, C., Guimarães, P. V., Bergamasco, F., Campos, R. M., 2024. Nearshore space-time ocean wave observation using low-cost video cameras.
 
 
 
