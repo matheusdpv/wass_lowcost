@@ -1,42 +1,24 @@
-WASS sync - image synchronization based on audio signal cross-correlation (demands video with audio built-in)
+# WASS Low-Cost Repository
 
-author: matheus vieira
+This repository provides tools and instructions for synchronizing and processing images from low-cost, consumer-grade video cameras (e.g., GoPro, Smartphones, DSLR) for use in the Wave Acquisition Stereo System (WASS) to acquire 3D sea surface elevation data. The tools support cameras equipped with built-in audio to enable time-synchronization via audio cues. 
+This repository can be used with the methods presented in Vieira et al., 2020 and Vieira et al., 2024 for space-time ocean wave observation using low-cost video cameras.
 
-HOW TO RUN:
-    - Edit file 'setup_sync.py' and place in the same path of the 'wass_sync.py' file
-    - Then, run:
-        python wass_sync.py
+### Repository Contents
+1. **`wass_sync.py`, `setup_sync.py`**  
+   Python scripts for synchronizing stereo images using audio time-lag cross-correlation, following the method described by Vieira et al. (2020).
+   
+2. **`WASS_quickstart_guide.pdf`**  
+   Step-by-step tutorial for installing WASS, running the system, and post-processing 3D space-time wave data.
+   
+3. **`input`**  
+   Example dataset with synchronized images from GoPro cameras (12 Hz, 1080x720 resolution).
+   
+4. **`config`**  
+   Calibration files including distortion and intrinsic parameters for accurate 3D reconstruction.
 
-REQUIREMENTS:
-    - OpenCV (python<=3.7):   conda install -c conda-forge opencv
-    - Praat software:         sudo apt-get install praat
-    - FFmpeg software:        sudo apt-get install ffmpeg
+### References
+Vieira, M., Guimarães, P. V., Violante-Carvalho, N., Benetazzo, A., Bergamasco, F., Pereira, H., 2020. A low-cost stereo video system for measuring directional wind waves. Journal of Marine Science and Engineering, 8(11).
+Vieira, M., Guedes Soares, C., Guimarães, P. V., Bergamasco, F., Campos, R. M., 2024. Nearshore space-time ocean wave observation using low-cost video cameras.
 
-DO:
-    - Frames extraction
-    - Frames synchronization
-    - Apply audio wind filter before frame synchronization (optional)
-    - Frames resampling       (optional)
-
-Tested devices
-    - Smartphones:    Galaxy J5 Pro 1080/30 fps - CMOS 13MP     - VFR
-    - Action cameras: GoPro HERO9 4K/30/24 or 1080p/30/24 fps   - CFR
-    - DSLR Pro:       PANASONIC AG-UX 180 - 4K/50 fps           - CFR
-    - DSLR Pro:       Canon 4K  15xzoom                         - CFR
-    
-    
-
-ps:
-If videos has a Constant Frame Rate - CFR (i.e DLSR Pro cameras, GoPro's)
-then the frames are straight extracted from original video, synchronized,
-resampled and stored in cam0/cam1 paths without any new video created.
-
-If videos has a Variable Frame Rate - VFR (i.e. smartphones)
-then is created a new re-encoding synchronized video (you can choose the new
-output fps and video format) then the synchronized frames are extracted
-from the encoded video and stored in cam0/cam1 paths.
-
-A wind noise filter can be applied for better cross-correlation of the audio
-signal in windy conditions
 
 
