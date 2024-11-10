@@ -5,7 +5,7 @@ This repository can be used with the methods presented in Vieira et al., 2020 an
 
 ### Repository Contents
 1. **`wass_sync.py`, `setup_sync.py`**  
-   Python scripts for synchronizing stereo images using audio time-lag cross-correlation, following the method described by Vieira et al. (2020).
+   Python scripts for synchronizing stereo images using audio time-lag cross-correlation, following the method described by Vieira et al. (2024).
    
 2. **`WASS_quickstart_guide.pdf`**  
    Step-by-step tutorial for installing WASS, running the system, and post-processing 3D space-time wave data.
@@ -18,7 +18,7 @@ This repository can be used with the methods presented in Vieira et al., 2020 an
 
 ### References
 1. Vieira, M., Guimarães, P. V., Violante-Carvalho, N., Benetazzo, A., Bergamasco, F., Pereira, H., 2020. A low-cost stereo video system for measuring directional wind waves. Journal of Marine Science and Engineering, 8(11).
-2. Vieira, M., Guedes Soares, C., Guimarães, P. V., Bergamasco, F., Campos, R. M., 2024. Nearshore space-time ocean wave observation using low-cost video cameras.
+2. Vieira, M., Guedes Soares, C., Guimarães, P. V., Bergamasco, F., Campos, R. M., 2024. Nearshore space-time ocean wave observation using low-cost video cameras. Coastal Engineering (review in progress)
 
 
 
