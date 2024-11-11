@@ -37,7 +37,6 @@ To synchronize images:
 
 ---
 
-This version aims for a clear, professional tone suitable for a README file. Let me know if you'd like further adjustments!
 
 ### References
 1. Vieira, M., Guimarães, P. V., Violante-Carvalho, N., Benetazzo, A., Bergamasco, F., Pereira, H., 2020. A low-cost stereo video system for measuring directional wind waves. Journal of Marine Science and Engineering, 8(11).
