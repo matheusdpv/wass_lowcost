@@ -39,8 +39,8 @@ To synchronize images:
 
 
 ### References
-1. Vieira, M., Guimarães, P. V., Violante-Carvalho, N., Benetazzo, A., Bergamasco, F., Pereira, H., 2020. A low-cost stereo video system for measuring directional wind waves. Journal of Marine Science and Engineering, 8(11).
-2. Vieira, M., Guedes Soares, C., Guimarães, P. V., Bergamasco, F., Campos, R. M., 2024. Nearshore space-time ocean wave observation using low-cost video cameras. Coastal Engineering (review in progress)
+1. Vieira, M., Guedes Soares, C., Guimarães, P. V., Bergamasco, F., Campos, R. M., 2024. Nearshore space-time ocean wave observation using low-cost video cameras. Coastal Engineering (review in progress)
+2.  Vieira, M., Guimarães, P. V., Violante-Carvalho, N., Benetazzo, A., Bergamasco, F., Pereira, H., 2020. A low-cost stereo video system for measuring directional wind waves. Journal of Marine Science and Engineering, 8(11).
 3. Bergamasco, F., Torsello, A., Sclavo, M., Barbariol, F., Benetazzo, A., 2017. WASS: An open-source pipeline for 3D stereo reconstruction of ocean waves, Computers and Geosciences, vol. 107, pp. 28-36.
 
 
