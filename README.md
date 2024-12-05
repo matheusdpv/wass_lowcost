@@ -16,7 +16,6 @@ This repository can be used with the methods presented in Vieira et al., 2020 an
 4. **`config`**  
    Calibration files including distortion and intrinsic parameters for accurate 3D reconstruction.
 
-Here’s a refined version with improved readability:
 
 ---
 
